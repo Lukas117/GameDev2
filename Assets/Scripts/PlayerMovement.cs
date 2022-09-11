@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float jumpPower;
+    [SerializeField] public bool walk;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private LayerMask wallLayer;
     private Rigidbody2D body;
@@ -13,6 +15,14 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D boxCollider;
     private float wallJumpCooldown;
     private float horizontalInput;
+
+    //dashing
+    private bool canDash = true;
+    private bool isDashing;
+    private float dashingPower = 12f;
+    private float dashingTime = 0.2f;
+    private float dashingCooldown = 1f;
+    [SerializeField] private TrailRenderer tr;
 
     private void Awake()
     {
@@ -23,15 +33,35 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
+        if (isDashing) return;
 
+        horizontalInput = Input.GetAxis("Horizontal");
 
         if (horizontalInput > 0.01f)
             transform.localScale = Vector3.one;
         else if (horizontalInput < -0.01f)
             transform.localScale = new Vector3(-1, 1, 1);
 
-        anim.SetBool("sprint", horizontalInput != 0);
+        if (walk)
+        {
+            anim.SetBool("walk", horizontalInput != 0);
+            anim.SetBool("sprint", false);
+            speed = 1;
+        }
+        else if (horizontalInput > 0.5 || horizontalInput < -0.5)
+        {
+            anim.SetBool("sprint", horizontalInput > 0.5 || horizontalInput < -0.5);
+            anim.SetBool("walk", false);
+            speed = 2;
+        }
+        else
+        {
+            anim.SetBool("walk", horizontalInput != 0);
+            anim.SetBool("sprint", false);
+            speed = 1;
+        }
+
+        anim.SetBool("grounded", IsGrounded());
 
         if (wallJumpCooldown > 0.2f)
         {
@@ -44,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                body.gravityScale = 3;
+                body.gravityScale = 1.5f;
             }
 
             if (Input.GetKey(KeyCode.Space))
@@ -55,6 +85,10 @@ public class PlayerMovement : MonoBehaviour
             wallJumpCooldown += Time.deltaTime;
         }
 
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+        {
+            StartCoroutine(Dash());
+        }
     }
 
     private void Jump()
@@ -62,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
         if (IsGrounded())
         {
             body.velocity = new Vector2(body.velocity.x, jumpPower);
+            anim.SetTrigger("jump");
 
         }
         else if(OnWall() && !IsGrounded())
@@ -92,6 +127,23 @@ public class PlayerMovement : MonoBehaviour
 
     public bool CanAttack()
     {
-        return horizontalInput == 0 && IsGrounded() && !OnWall();
+        return IsGrounded() && !OnWall();
+        //horizontalInput == 0
+    }
+
+    private IEnumerator Dash()
+    {
+        canDash = false;
+        isDashing = true;
+        float originalGravity = body.gravityScale;
+        body.gravityScale = 0f;
+        body.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
+        tr.emitting = true;
+        yield return new WaitForSeconds(dashingTime);
+        tr.emitting = false;
+        body.gravityScale = originalGravity;
+        isDashing = false;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private float attackCooldown;
+    [SerializeField] private float throwCooldown;
     private Animator anim;
     private PlayerMovement playerMovement;
     private float cooldownTimer = Mathf.Infinity;
@@ -21,11 +22,20 @@ public class PlayerAttack : MonoBehaviour
             Attack();
 
         cooldownTimer += Time.deltaTime;
+
+        if (Input.GetMouseButton(1) && cooldownTimer > throwCooldown && playerMovement.CanAttack())
+            Throw();
     }
 
     private void Attack()
     {
-        //anim.SetTrigger("attack");
-        cooldownTimer = 0;
+        anim.SetTrigger("attack");
+        cooldownTimer = 1;
+    }
+
+    private void Throw()
+    {
+        anim.SetTrigger("throw");
+        cooldownTimer = 1;
     }
 }
