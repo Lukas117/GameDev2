@@ -8,7 +8,14 @@ public class Arrowtrap : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject[] projectiles;
 
+    private Animator anim;
+
     private float cooldownTimer;
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     private void Attack()
     {
@@ -33,7 +40,9 @@ public class Arrowtrap : MonoBehaviour
         cooldownTimer += Time.deltaTime;
         if (cooldownTimer >= attackCooldown)
         {
+            anim.SetBool("activated", true);
             Attack();
+            //anim.SetBool("activated", false);
         }
     }
 }
