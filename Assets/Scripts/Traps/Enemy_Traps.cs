@@ -11,14 +11,18 @@ public class Enemy_Traps : MonoBehaviour
     private float leftEdge;
     private float rightEdge;
 
+    private Animator anim;
+
     private void Awake()
     {
+        anim = GetComponent<Animator>();
         leftEdge = transform.position.x - movementDistance;
         rightEdge = transform.position.x + movementDistance;
     }
 
     private void Update()
     {
+        anim.SetBool("activated", true);
         if (movingLeft)
         {
             if (transform.position.x > leftEdge)

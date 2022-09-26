@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private BoxCollider2D boxCollider;
     private float wallJumpCooldown;
-    private float horizontalInput;
+    public float horizontalInput;
 
     //dashing
     private bool canDash = true;

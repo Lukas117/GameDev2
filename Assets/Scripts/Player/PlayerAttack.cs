@@ -35,8 +35,16 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attack()
     {
-        anim.SetTrigger("attack");
-        cooldownTimer = 1;
+        if (playerMovement.horizontalInput == 0)
+        {
+            anim.SetTrigger("attack");
+            cooldownTimer = 1;
+        }
+        else
+        {
+            anim.SetTrigger("attackSprint");
+            cooldownTimer = 1;
+        }
     }
 
     private void Throw()
