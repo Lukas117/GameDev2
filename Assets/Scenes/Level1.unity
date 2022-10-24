@@ -2267,9 +2267,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 1797111830}
     m_Modifications:
     - target: {fileID: 8317885795089120908, guid: dce201f426aed3b4f94dc4db02e97f85, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
+      propertyPath: m_FlipX
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8317885795089120908, guid: dce201f426aed3b4f94dc4db02e97f85, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2066846372, guid: 44b06e4644d65be4181acd62f0ff5d37, type: 3}
     - target: {fileID: 8317885795089120911, guid: dce201f426aed3b4f94dc4db02e97f85, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2280,7 +2284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8317885795089120911, guid: dce201f426aed3b4f94dc4db02e97f85, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.031
       objectReference: {fileID: 0}
     - target: {fileID: 8317885795089120911, guid: dce201f426aed3b4f94dc4db02e97f85, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2321,10 +2325,6 @@ PrefabInstance:
     - target: {fileID: 8317885795089120945, guid: dce201f426aed3b4f94dc4db02e97f85, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8317885795089120947, guid: dce201f426aed3b4f94dc4db02e97f85, type: 3}
-      propertyPath: components.Array.size
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8317885795089120947, guid: dce201f426aed3b4f94dc4db02e97f85, type: 3}
       propertyPath: components.Array.data[1]
@@ -2898,7 +2898,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &1197203692
 Animator:
   serializedVersion: 4
@@ -5910,13 +5910,17 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 2082371973}
+    - target: {fileID: 1561130412926199146, guid: 757004bf04dc9204d8239981f865445f, type: 3}
+      propertyPath: idleDuration
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1561130412926199147, guid: 757004bf04dc9204d8239981f865445f, type: 3}
       propertyPath: m_Name
       value: EnemyPatrol
       objectReference: {fileID: 0}
     - target: {fileID: 1561130412926199147, guid: 757004bf04dc9204d8239981f865445f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 757004bf04dc9204d8239981f865445f, type: 3}
@@ -5992,6 +5996,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4064289411877624174, guid: dc0c1053f22cf0443b3f7cc3aad60ff7, type: 3}
+      propertyPath: m_Size.x
+      value: 0.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064289411877624174, guid: dc0c1053f22cf0443b3f7cc3aad60ff7, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -579923636, guid: 78f0974060b80384f97de21f35915303, type: 3}
+    - target: {fileID: 4064289411877624174, guid: dc0c1053f22cf0443b3f7cc3aad60ff7, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4064289411877624177, guid: dc0c1053f22cf0443b3f7cc3aad60ff7, type: 3}
       propertyPath: projectiles.Array.data[0]
       value: 

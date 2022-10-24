@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b6f6238c840b5594895db3112e16cf8a
+guid: 44b06e4644d65be4181acd62f0ff5d37
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: newsprintattack-Sheet_0
+      name: enemy_0
       rect:
         serializedVersion: 2
         x: 0
@@ -130,14 +130,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fa80ccd94cc03ad47aa00e7cec958c1b
-      internalID: 1591739490
+      spriteID: 173a820e1c835df42accdd724789fd75
+      internalID: -442301726
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: newsprintattack-Sheet_1
+      name: enemy_1
       rect:
         serializedVersion: 2
         x: 64
@@ -151,14 +151,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 872cbc5b4aed11941a541a01eb1cce33
-      internalID: -488790921
+      spriteID: c324fd03606a8fd4c8fe593ae3dd8386
+      internalID: -1322393208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: newsprintattack-Sheet_2
+      name: enemy_2
       rect:
         serializedVersion: 2
         x: 128
@@ -172,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4288535ebf5598408b96d7dc5f607c7
-      internalID: 907479859
+      spriteID: 3db031e45fd70ec49aa99d110ee02065
+      internalID: 816869815
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: newsprintattack-Sheet_3
+      name: enemy_3
       rect:
         serializedVersion: 2
         x: 192
@@ -193,8 +193,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e89a841978908b042afa73752a46fdbe
-      internalID: 139361905
+      spriteID: a9d941c24fb933d4f8bae1d910691554
+      internalID: 1323649388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30f4d3d9aa9dbab47a92be9b77c8286f
+      internalID: -1156497599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f0504b06a8c00b4ea1c260ace8e9ae8
+      internalID: 230412269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: enemy_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d08aaeb3f7da28e47b748f2a9078421d
+      internalID: -2066846372
       vertices: []
       indices: 
       edges: []
@@ -210,10 +273,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      newsprintattack-Sheet_2: 907479859
-      newsprintattack-Sheet_3: 139361905
-      newsprintattack-Sheet_1: -488790921
-      newsprintattack-Sheet_0: 1591739490
+      enemy_1: -1322393208
+      enemy_2: 816869815
+      enemy_3: 1323649388
+      enemy_5: 230412269
+      enemy_4: -1156497599
+      enemy_0: -442301726
+      enemy_6: -2066846372
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
