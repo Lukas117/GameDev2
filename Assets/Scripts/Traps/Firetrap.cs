@@ -12,6 +12,9 @@ public class Firetrap : MonoBehaviour
     private Animator anim;
     private SpriteRenderer rend;
 
+    //[Header("SFX")]
+    //[SerializeField] private AudioClip fireSound;
+
     private bool triggered;
     private bool active;
 
@@ -56,12 +59,18 @@ public class Firetrap : MonoBehaviour
 
     private IEnumerator ActivateFiretrap()
     {
+        //turn the sprite red to notify the player and trigger the trap
         triggered = true;
         rend.color = Color.red;
+
+        //wait for delay, activate trap, turn on animation, return color back to normal
         yield return new WaitForSeconds(activationDelay);
+        //SoundManager.Instance.PlaySound(fireSound);
         rend.color = Color.white;
         active = true;
         anim.SetBool("activated", true);
+
+        //wait until x seconds, deactivate trap and reset all variables and animator
         yield return new WaitForSeconds(activeTime);
         active = false;
         triggered = false;

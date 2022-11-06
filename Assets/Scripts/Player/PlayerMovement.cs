@@ -16,6 +16,9 @@ public class PlayerMovement : MonoBehaviour
     private float wallJumpCooldown;
     public float horizontalInput;
 
+    //[Header("SFX")]
+    //[SerializeField] private AudioClip jumpSound;
+
     //dashing
     private bool canDash = true;
     private bool isDashing;
@@ -78,7 +81,13 @@ public class PlayerMovement : MonoBehaviour
             }
 
             if (Input.GetKey(KeyCode.Space))
+            {
                 Jump();
+                if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+                {
+                    //SoundManager.Instance.PlaySound(jumpSound);
+                }
+            }
         }
         else
         {

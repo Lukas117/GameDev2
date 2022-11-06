@@ -9,6 +9,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private float throwCooldown;
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject[] projectiles;
+    //[SerializeField] private AudioClip knifeSound;
 
     private Animator anim;
     private PlayerMovement playerMovement;
@@ -49,6 +50,7 @@ public class PlayerAttack : MonoBehaviour
 
     private void Throw()
     {
+        //SoundManager.Instance.PlaySound(knifeSound);
         anim.SetTrigger("throw");
         cooldownTimer = 1;
 
